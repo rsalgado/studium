@@ -1,2 +1,7 @@
 h1  You are in home#index (HomeController#index)
 p ="The time is #{@time}"
+- if current_user
+    p = "You are #{current_user.email}"
+    = link_to 'Sign out', destroy_user_session_path, method: :delete
+- else
+  = link_to 'Sign in', new_user_session_path
