@@ -4,4 +4,7 @@ class HomeController < ApplicationController
     @time = Time.now
   end
 
+  def about
+  end
+  
 end

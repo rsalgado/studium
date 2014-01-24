@@ -15,7 +15,7 @@ nav.navbar.navbar-inverse role="navigation"
     /Right-side links (and dropdown)
     ul.nav.navbar-nav.navbar-right
       li
-        a href="#" About
+        = link_to 'About', about_path
 
       - if user_signed_in?
         /User session dropdown
