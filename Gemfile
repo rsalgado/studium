@@ -32,6 +32,23 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+
+# Additional gems for this project
+
+## Use Devise for authentication
+gem 'devise', '~> 3.0'
+
+## Use Bootstrap SASS
+gem 'bootstrap-sass', '~> 3.0.3.0'
+
+## Enable the use of Slim in the project
+gem 'slim'
+
+## TODO: Add TDD gems (check the prototype Gemfile)
+
+
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
