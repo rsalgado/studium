@@ -10,6 +10,15 @@
 .devise-form {
   max-width: 32em;
   margin: 0 auto;
+
+  .alert h2 {
+    font-size: 125%;
+  }
+
+  .field_with_errors > input {
+    border-color: #c77;
+    box-shadow: 0 0 6px #d88;
+  }
 }
 
 .other-options {
