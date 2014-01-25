@@ -8,8 +8,12 @@
 /* Custom styles go here */
 
 .devise-form {
-  max-width: 32em;
+  max-width: 36em;
   margin: 0 auto;
+
+  input {
+    max-width: 90%;
+  }
 
   .alert h2 {
     font-size: 125%;
