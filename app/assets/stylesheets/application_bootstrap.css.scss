@@ -3,3 +3,20 @@
 
 /* Import Bootstrap to the project */
 @import "bootstrap";
+
+
+/* Custom styles go here */
+
+.devise-form {
+  max-width: 32em;
+  margin: 0 auto;
+}
+
+.other-options {
+  font-weight: bold;
+  padding-bottom: 1em;
+
+  a {
+    margin-right: 3em;
+  }
+}
