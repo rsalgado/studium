@@ -10,15 +10,21 @@
 
 <%= render partial: 'shared/header' %>
 
-<% if notice %>
-  <div class="notice alert alert-info"><%= notice %></div>
-<% end %>
-<% if alert %>
-  <div class="alert alert-danger"><%= alert %></div>
-<% end %>
+
+<div class="contents">
+  <% if notice %>
+    <div class="notice alert alert-info"><%= notice %></div>
+  <% end %>
+  <% if alert %>
+    <div class="alert alert-danger"><%= alert %></div>
+  <% end %>
 
 
-<%= yield %>
+  <%= yield %>
+
+
+  <%= render 'shared/footer' %>
+</div>
 
 
 </body>

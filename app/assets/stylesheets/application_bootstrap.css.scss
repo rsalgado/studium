@@ -7,6 +7,12 @@
 
 /* Custom styles go here */
 
+/* 
+TODO: 
+ * Consider using SCSS variables for .contents paddings.
+*/
+
+
 .devise-form {
   max-width: 36em;
   margin: 0 auto;
@@ -32,4 +38,35 @@
   a {
     margin-right: 3em;
   }
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+nav.navbar {
+  z-index: 1; /* Necessary for making it clickable. NOTE: Be careful with other nav.navbars */
+}
+
+.contents {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  min-height: 100%;
+  padding-top: 60px;  /* Is the height of the header + 10px */
+  padding-bottom: 50px; /* Is the max-height of the footer */
+
+  footer {
+    box-sizing: border-box;
+    padding: 0.4em;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid #ddd;
+    background: rgb(240, 240, 240);
+    max-height: 50px;
+  }  
 }
