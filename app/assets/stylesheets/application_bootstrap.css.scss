@@ -51,6 +51,7 @@ nav.navbar {
 }
 
 .contents {
+  box-sizing: border-box;
   position: absolute;
   top: 0;
   width: 100%;
@@ -69,4 +70,17 @@ nav.navbar {
     background: rgb(240, 240, 240);
     max-height: 50px;
   }  
+}
+
+.params {
+  padding: 1em;
+}
+
+.about {
+  width: 90%;
+  margin: 0 auto;
+
+  p {
+    text-align: justify;
+  }
 }

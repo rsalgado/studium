@@ -1,7 +1,12 @@
-h1  You are in home#index (HomeController#index)
-p ="The time is #{@time}"
-- if current_user
-    p = "You are #{current_user.email}"
-    = link_to 'Sign out', destroy_user_session_path, method: :delete
-- else
-  = link_to 'Sign in', new_user_session_path
+.jumbotron
+  h1 Welcome to Studium!
+  ul  
+    li 
+      | If you want to know more about Studium, you should 
+      a href="/about" read this
+    br
+    li If you already have an account you can 
+    = link_to 'Sign in', new_user_session_path, {class: 'btn btn-primary btn-lg'}
+    
+    li Or, if you don't have one and want to, you can
+    = link_to 'Sign up', new_user_registration_path, {class: 'btn btn-primary btn-lg'}

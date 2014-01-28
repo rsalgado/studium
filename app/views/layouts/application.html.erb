@@ -18,14 +18,18 @@
   <% if alert %>
     <div class="alert alert-danger"><%= alert %></div>
   <% end %>
-
+  
+  <div class="params">
+  <% if Rails.env.development? %>
+    <%= debug params %>
+  <% end %>
+  </div>
 
   <%= yield %>
 
 
   <%= render 'shared/footer' %>
 </div>
-
 
 </body>
 </html>
