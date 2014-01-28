@@ -44,7 +44,11 @@ gem 'bootstrap-sass', '~> 3.0.3.0'
 ## Enable the use of Slim in the project
 gem 'slim'
 
-## TODO: Add TDD gems (check the prototype Gemfile)
+## TDD gems (Rspec and FactoryGirl)
+group :development, :test do
+  gem 'rspec-rails', '~> 2.0'
+  gem 'factory_girl_rails'
+end
 
 
 
