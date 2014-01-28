@@ -40,24 +40,21 @@ TODO:
   }
 }
 
+$footer-height: 50px;
+
 html, body {
   margin: 0;
   padding: 0;
   height: 100%;
 }
 
-nav.navbar {
-  z-index: 1; /* Necessary for making it clickable. NOTE: Be careful with other nav.navbars */
-}
-
 .contents {
   box-sizing: border-box;
-  position: absolute;
+  position: relative;
   top: 0;
   width: 100%;
   min-height: 100%;
-  padding-top: 60px;  /* Is the height of the header + 10px */
-  padding-bottom: 50px; /* Is the max-height of the footer */
+  padding-bottom: $footer-height; /* Is the max-height of the footer */
 
   footer {
     box-sizing: border-box;
@@ -68,7 +65,7 @@ nav.navbar {
     text-align: center;
     border-top: 1px solid #ddd;
     background: rgb(240, 240, 240);
-    max-height: 50px;
+    height: $footer-height;
   }  
 }
 

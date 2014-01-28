@@ -8,10 +8,9 @@
 </head>
 <body>
 
-<%= render partial: 'shared/header' %>
-
-
 <div class="contents">
+  <%= render partial: 'shared/header' %>
+  
   <% if notice %>
     <div class="notice alert alert-info"><%= notice %></div>
   <% end %>
@@ -24,6 +23,7 @@
     <%= debug params %>
   <% end %>
   </div>
+
 
   <%= yield %>
 
