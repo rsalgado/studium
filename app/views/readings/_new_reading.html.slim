@@ -12,8 +12,4 @@
           = f.submit 'Create', {class: 'btn btn-primary'}
 
     / Error messages area
-    - if reading && !reading.errors.empty?
-      .alert.alert-danger
-        ul
-        - reading.errors.each do |field, message|
-          li = "#{field} #{message}"
+    = render partial: 'errors', locals: {reading: reading}

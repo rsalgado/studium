@@ -19,11 +19,17 @@ class ReadingsController < ApplicationController
   end
 
   def edit
-
+    @reading = Reading.find params[:id]
   end
 
   def update
-    
+    @reading = Reading.find params[:id]
+
+    if @reading.update strong_params
+      redirect_to readings_path, notice: "#{@reading.title} was successfully updated"
+    else
+      render 'edit'
+    end
   end
 
   def destroy

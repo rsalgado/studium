@@ -1,1 +1,17 @@
-h1  You are in Readings#edit
+#readings
+  
+  = link_to "\u2190 Back to Readings", readings_path
+
+  h2 
+   | Edit 
+   strong #{@reading.title}
+  br
+
+  = form_for(@reading, html: {class: 'form', role:'form'}) do |f|
+    .form-group
+      = f.label :title, 'Reading Title', class: 'control-label'
+      = f.text_field :title, class: 'form-control'
+
+    = render partial: 'errors', locals: {reading: @reading}
+
+    = f.submit 'Save', class: 'btn btn-warning'

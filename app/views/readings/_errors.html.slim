@@ -1,0 +1,5 @@
+- if reading && !reading.errors.empty?
+  .alert.alert-danger
+    ul
+    - reading.errors.each do |field, message|
+      li = "#{field} #{message}"
