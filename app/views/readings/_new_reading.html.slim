@@ -10,3 +10,10 @@
 
         .col-xs-2.col-sm-2.col-md-1
           = f.submit 'Create', {class: 'btn btn-primary'}
+
+    / Error messages area
+    - if reading && !reading.errors.empty?
+      .alert.alert-danger
+        ul
+        - reading.errors.each do |field, message|
+          li = "#{field} #{message}"

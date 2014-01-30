@@ -4,7 +4,7 @@
     ul.current-readings.nav.nav-stacked.list-unstyled
       - readings.each do |reading|
         li
-          = link_to reading.title, reading_path(reading)
+          = link_to reading.title, reading
           span.reading-options.btn-group.btn-group
             = link_to 'Edit', edit_reading_path(reading), {class: 'btn btn-warning'}
-            = link_to 'Delete', reading, {method: :destroy, confirm: 'Are you sure?', class: 'btn btn-danger'}
+            = link_to 'Delete', reading, {method: :delete, confirm: 'Are you sure?', class: 'btn btn-danger'}
