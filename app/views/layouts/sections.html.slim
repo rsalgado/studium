@@ -1,0 +1,12 @@
+/ Custom subtemplate (nested layout)
+- content_for(:subtemplate) do
+  h1  This is the Sections Layout
+  / TODO: Add shared partial for sections area
+  / TODO: Implement the main contents area (include a partial for the tabs in it)
+
+  / TODO: Put this inside the main contents area
+  = yield
+
+
+/ Main template (layout)
+= render template: 'layouts/application'
