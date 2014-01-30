@@ -6,5 +6,7 @@ Studium::Application.routes.draw do
 
   # About page
   get '/about', to: 'home#about', as: :about
-  
+
+  # Readings resource
+  resources :readings, except: [:new, :show]
 end

@@ -24,8 +24,11 @@
   <% end %>
   </div>
 
-
-  <%= yield %>
+  <% if content_for?(:subtemplate) %>
+    <%= yield(:subtemplate) %>
+  <% else %>
+    <%= yield %>
+  <% end %>
 
 
   <%= render 'shared/footer' %>
