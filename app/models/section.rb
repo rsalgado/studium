@@ -1,6 +1,7 @@
 class Section < ActiveRecord::Base
   # Associations
   belongs_to :reading
+  has_many :questions
 
   # Validations
   validates :notes, length: {maximum: 12000}

@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :question do
-    title "MyString"
-    answer "MyText"
+    title "What is this chapter about?"
+    answer "Is about an example reading's chapter for the tests"
   end
 end
