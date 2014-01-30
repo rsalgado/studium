@@ -1,3 +1,17 @@
 // Place all the styles related to the readings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#readings {
+  padding: 0 2em;
+}
+
+.current-readings > li {
+  position: relative;
+}
+
+.reading-options {
+  position: absolute;
+  top: 3px;   /* TODO: Find a better way to calculate this */
+  right: 0;
+}

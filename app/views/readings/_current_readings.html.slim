@@ -1,0 +1,10 @@
+.panel.panel-primary
+  .panel-heading Current Readings
+  .panel-body
+    ul.current-readings.nav.nav-stacked.list-unstyled
+      - readings.each do |reading|
+        li
+          = link_to reading.title, reading_path(reading)
+          span.reading-options.btn-group.btn-group
+            = link_to 'Edit', edit_reading_path(reading), {class: 'btn btn-warning'}
+            = link_to 'Delete', reading, {method: :destroy, confirm: 'Are you sure?', class: 'btn btn-danger'}
