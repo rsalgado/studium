@@ -43,7 +43,6 @@ class SectionsController < ApplicationController
     @section = Section.find params[:id]
     @reading = @section.reading
     @sections = @reading.sections
-    
   end
 
   def update_notes

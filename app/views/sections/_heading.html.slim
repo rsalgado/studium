@@ -1,0 +1,16 @@
+/ Requires locals: section, selected
+
+/ Header
+h2 
+  | #{section.name} 
+  span.btn-group
+    = link_to 'Edit', edit_section_path(section), {class: 'btn btn-warning'}
+    = link_to 'Delete', section, {method: :delete, confirm: 'Are you sure?', class: 'btn btn-danger' }
+
+br
+
+/ Tabs
+ul.nav.nav-tabs.nav-justified
+  li(class="#{'active' if selected == :notes}") = link_to 'Notes', notes_section_path
+  li(class="#{'active' if selected == :questions}") = link_to 'Questions', '#'
+  li(class="#{'active' if selected == :test}") = link_to 'Test', '#'
