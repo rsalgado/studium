@@ -1,0 +1,15 @@
+/ Requires locals: sections, selected_id
+
+.col-xs-4
+  .panel.panel-info
+    .panel-heading  Sections
+    .panel-body
+      / Create new section area
+      .new-section-area
+        = link_to 'Add New Section', new_reading_section_path, 
+            {class: 'btn btn-info btn-block btn-lg'}
+      / Sections List
+      ul.nav.nav-pills.nav-stacked
+        - sections.each do |section|
+          li(class="#{ section.id == selected_id ? 'active': '' }")
+            = link_to section.name, section

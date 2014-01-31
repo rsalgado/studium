@@ -1,3 +1,20 @@
 // Place all the styles related to the Sections controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.contents-area {
+  margin-right: 1em;  /* Needed to row issues */
+  padding: 0 0.5em 0 1em;
+  box-sizing: border-box;
+
+  .jumbotron {
+    border-radius: 8px;
+  }
+}
+
+.new-section-area {
+  $spacing: 1.5em;
+  padding-bottom: $spacing;
+  margin-bottom: $spacing;
+  border-bottom: 2px dotted rgb(224, 224, 224);
+}

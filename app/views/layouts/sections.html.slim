@@ -1,11 +1,21 @@
 / Custom subtemplate (nested layout)
 - content_for(:subtemplate) do
-  h1  This is the Sections Layout
-  / TODO: Add shared partial for sections area
-  / TODO: Implement the main contents area (include a partial for the tabs in it)
+  .contents-area
+    = link_to "\u2190 Back to Readings", readings_path
 
-  / TODO: Put this inside the main contents area
-  = yield
+    h1 #{@reading.title}
+
+    .row
+      / Sections Area
+      = render partial: 'shared/sections', locals: { sections: @sections, selected_id: @selected_id }
+      
+      / TODO: Implement the current section area (include a partial for the tabs in it)
+
+      / Current Section Area
+      .col-xs-8
+        .panel.panel-default
+          .panel-body
+            = yield
 
 
 / Main template (layout)
