@@ -13,6 +13,12 @@ Studium::Application.routes.draw do
     get '/:reading_id/', to: 'sections#index', on: :collection
     
     # Sections resource
-    resources :sections, except: [:show], shallow: true
+    resources :sections, except: [:show], shallow: true do
+      # Render sections#notes instead of sections#show (which is not valid)
+      get '/', to: 'sections#notes', on: :member
+      # Add route to section#notes
+      get '/notes', to: 'sections#notes', on: :member
+    end
+
   end
 end

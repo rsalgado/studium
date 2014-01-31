@@ -1,0 +1,5 @@
+- if section && !section.errors.empty?
+  .alert.alert-danger
+    ul
+    - section.errors.each do |field, message|
+        li = "#{field} #{message}"

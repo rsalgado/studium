@@ -1,4 +1,4 @@
-/ Requires locals: sections, selected_id
+/ Requires locals: sections, selected_id, reading_id
 
 .col-xs-4
   .panel.panel-info
@@ -6,7 +6,7 @@
     .panel-body
       / Create new section area
       .new-section-area
-        = link_to 'Add New Section', new_reading_section_path, 
+        = link_to 'Add New Section', new_reading_section_path(reading_id),
             {class: 'btn btn-info btn-block btn-lg'}
       / Sections List
       ul.nav.nav-pills.nav-stacked

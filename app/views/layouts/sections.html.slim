@@ -7,7 +7,8 @@
 
     .row
       / Sections Area
-      = render partial: 'shared/sections', locals: { sections: @sections, selected_id: @selected_id }
+      = render  partial: 'shared/sections', 
+                locals: { sections: @sections, selected_id: @selected_id, reading_id: @reading.id }
       
       / TODO: Implement the current section area (include a partial for the tabs in it)
 
