@@ -1,4 +1,16 @@
 / Show heading (header and tabs)
 = render partial: 'heading', locals: {section: @section, selected: :notes}
+br
+
+= render partial: 'errors', locals:{section: @section}
+br
 
 / Notes contents
+= form_for(@section, url: notes_section_path(@section), 
+    html: { class: 'form', role: 'form' }  ) do |f|
+  .form-group
+    = f.label :notes, 'Notes', {class: 'control-label'}
+    = f.text_area :notes, {class: 'form-control', rows: 12}
+
+  .form-group
+    = f.submit 'Save', {class: 'btn btn-primary pull-right'}

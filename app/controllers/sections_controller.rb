@@ -30,12 +30,28 @@ class SectionsController < ApplicationController
   end
 
   def edit
+    @section = Section.find params[:id]
+    @reading = @section.reading
+    @sections = @reading.sections
   end
 
   def update
+    strong_params = params.require(:section).permit(:name)
+    @section = Section.find params[:id]
+
+    if @section.update(strong_params)
+      redirect_to @section, notice: "#{@section.name} succesfully updated"
+    else
+      @reading = @section.reading
+      @sections = @reading.sections
+      render 'edit'
+    end
   end
 
   def destroy
+    @section = Section.find params[:id]
+    @section.destroy
+    redirect_to reading_sections_path(@section.reading)
   end
 
 
@@ -46,7 +62,16 @@ class SectionsController < ApplicationController
   end
 
   def update_notes
-    
+    strong_params = params.require(:section).permit(:notes)
+    @section = Section.find params[:id]
+
+    if @section.update(strong_params)
+      redirect_to notes_section_path(@section)
+    else
+      @reading = @section.reading
+      @sections = @reading.sections
+      render 'notes'
+    end
   end
   
 
