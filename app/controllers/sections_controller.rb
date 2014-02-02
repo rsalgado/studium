@@ -1,23 +1,17 @@
 class SectionsController < ApplicationController
   before_action :authenticate
   before_action :authorize
+  before_action :find_reading_and_sections, only: [:index, :new, :create]
 
   def index
-    @reading = Reading.find params[:reading_id]
-    @sections = @reading.sections
   end
 
   def new
-    @reading = Reading.find params[:reading_id]
-    @sections = @reading.sections
     @section = Section.new
     @section.reading = @reading
   end
 
   def create
-    @reading = Reading.find params[:reading_id]
-    @sections = @reading.sections
-
     strong_params = params.require(:section).permit(:name)
     @section = Section.new strong_params
     @section.reading = @reading
@@ -91,5 +85,10 @@ class SectionsController < ApplicationController
     unless reading_condition || section_condition
       redirect_to readings_path
     end
+  end
+
+  def find_reading_and_sections
+    @reading = Reading.find params[:reading_id]
+    @sections = @reading.sections
   end
 end
