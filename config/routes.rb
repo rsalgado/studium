@@ -22,7 +22,7 @@ Studium::Application.routes.draw do
       match '/notes', to: 'sections#update_notes', on: :member, via: [:put, :patch]
 
       # Questions resource
-      resources :questions, shallow: true
+      resources :questions, shallow: true, except: [:show, :new]
     end
 
   end

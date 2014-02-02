@@ -11,6 +11,6 @@ br
 
 / Tabs
 ul.nav.nav-tabs.nav-justified
-  li(class="#{'active' if selected == :notes}") = link_to 'Notes', notes_section_path
-  li(class="#{'active' if selected == :questions}") = link_to 'Questions', '#'
+  li(class="#{'active' if selected == :notes}") = link_to 'Notes', notes_section_path(section)
+  li(class="#{'active' if selected == :questions}") = link_to 'Questions', section_questions_path(section)
   li(class="#{'active' if selected == :test}") = link_to 'Test', '#'

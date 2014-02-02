@@ -1,3 +1,17 @@
 // Place all the styles related to the questions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#questions-list .panel-heading {
+  position: relative;
+}
+
+#questions-list .panel-heading .btn-group {
+  position: absolute;
+  right: 3px;
+  top: 3px;
+}
+
+.panel-heading a[data-toggle="collapse"] {
+  display: block;
+}

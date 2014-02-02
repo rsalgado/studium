@@ -1,2 +1,7 @@
-<h1>Questions#index</h1>
-<p>Find me in app/views/questions/index.html.erb</p>
+= render partial: 'sections/heading', locals: {section: @section, selected: :questions}
+br
+
+= render partial: 'new_question', locals: {section: @section, question: @question}
+br
+
+= render partial: 'questions_list', locals: {questions: @questions}

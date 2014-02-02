@@ -1,0 +1,5 @@
+- if question && !question.errors.empty?
+  .alert.alert-danger
+    ul
+      - question.errors.each do |field, message|
+        li = "#{field} #{message}"

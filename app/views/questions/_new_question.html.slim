@@ -1,0 +1,14 @@
+.panel.panel-default
+  .panel-heading  Create New Question
+  .panel-body
+    = render partial: 'errors', locals: {question: @question}
+
+    = form_for(question || Question.new, html: {role: 'form', class: 'horizontal-form'}, 
+      url: section_questions_path(section)) do |f|
+      
+      .form-group
+        .col-xs-8.col-sm-9.col-md-10
+          = f.text_field :title, {class: 'form-control', placeholder: 'What is your question?'}
+        
+        .col-xs-4.col-sm-3.col-md-2
+          = f.submit 'Create', {class: 'btn btn-primary'}
