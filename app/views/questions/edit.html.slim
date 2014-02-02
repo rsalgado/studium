@@ -1,2 +1,22 @@
-<h1>Questions#edit</h1>
-<p>Find me in app/views/questions/edit.html.erb</p>
+= render partial: 'sections/heading', locals: {section: @section, selected: :questions}
+br
+
+= link_to "\u2190 Back to Questions", section_questions_path(@section.id)
+
+h3  
+  | Edit Question: 
+  strong = @question.title
+
+= render partial: 'errors', locals: {question: @question}
+br
+
+= form_for(@question, html: {role:'form', class: 'form'}) do |f|
+  .form-group
+    = f.label :title, 'Title', {class: 'control-label'}
+    = f.text_field :title, {class: 'form-control'}
+
+  .form-group
+    = f.label :answer, 'Answer', {class: 'control-label'}
+    = f.text_area :answer, {class: 'form-control', rows: 5}
+
+  = f.submit 'Save', {class: 'btn btn-warning'}

@@ -35,7 +35,7 @@ class ReadingsController < ApplicationController
   def destroy
     @reading = Reading.find params[:id]
     @reading.destroy
-    redirect_to 'index', notice: "#{@reading.title} deleted succesfully"
+    redirect_to readings_path, notice: "#{@reading.title} deleted succesfully"
   end
 
 

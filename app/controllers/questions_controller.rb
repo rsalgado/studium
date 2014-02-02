@@ -23,12 +23,25 @@ class QuestionsController < ApplicationController
   end
 
   def edit
+    @question = Question.find params[:id]
   end
 
   def update
+    strong_params = params.require(:question).permit(:title, :answer)
+    @question = Question.find params[:id]
+
+    if @question.update(strong_params)
+      redirect_to section_questions_path(@question.section), 
+                  notice: "#{@question.title} successfully updated"
+    else
+      render 'edit'
+    end
   end
 
   def destroy
+    @question = Question.find params[:id]
+    @question.destroy
+    redirect_to section_questions_path(@section)
   end
 
 
