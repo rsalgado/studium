@@ -1,4 +1,4 @@
-/ Requires locals: sections, selected_id, reading_id
+/ Requires locals: sections, current_section, reading_id
 
 .col-xs-4
   .panel.panel-info
@@ -11,5 +11,5 @@
       / Sections List
       ul.nav.nav-pills.nav-stacked
         - sections.each do |section|
-          li(class="#{ section.id == selected_id ? 'active': '' }")
+          li(class="#{ (current_section && current_section.id == section.id) ? 'active': '' }")
             = link_to section.name, section
