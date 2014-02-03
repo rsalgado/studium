@@ -68,6 +68,12 @@ class SectionsController < ApplicationController
     end
   end
   
+  def test
+    @section = Section.find params[:id]
+    @answered_questions = @section.questions.select(&:answered?)
+    @reading = @section.reading
+    @sections = @reading.sections
+  end
 
   private
 

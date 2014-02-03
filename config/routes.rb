@@ -20,7 +20,8 @@ Studium::Application.routes.draw do
       get '/notes', to: 'sections#notes', on: :member
       # Match PATCH/PUT /notes to sections#update_notes
       match '/notes', to: 'sections#update_notes', on: :member, via: [:put, :patch]
-
+      
+      get '/test', to: 'sections#test', on: :member
       # Questions resource
       resources :questions, shallow: true, except: [:show, :new]
     end
