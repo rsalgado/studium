@@ -2,13 +2,12 @@
 - content_for(:subtemplate) do
   .contents-area
     = link_to "\u2190 Back to Readings", readings_path
-
     h1 #{@reading.title}
 
     .row
       / Sections Area
       = render  partial: 'shared/sections', 
-                locals: { sections: @sections, selected_id: @selected_id, reading_id: @reading.id }
+                locals: { sections: @sections, selected_id: current_section_id, reading_id: @reading.id }
       
       / Current Section Area
       .col-xs-8
