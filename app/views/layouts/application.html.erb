@@ -18,18 +18,17 @@
     <div class="alert alert-danger"><%= alert %></div>
   <% end %>
   
-  <div class="params">
-  <% if Rails.env.development? %>
-    <%= debug params %>
-  <% end %>
-  </div>
-
   <% if content_for?(:subtemplate) %>
     <%= yield(:subtemplate) %>
   <% else %>
     <%= yield %>
   <% end %>
 
+  <div class="params">
+  <% if Rails.env.development? %>
+    <%= debug params %>
+  <% end %>
+  </div>
 
   <%= render 'shared/footer' %>
 </div>

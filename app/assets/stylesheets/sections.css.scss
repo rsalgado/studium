@@ -18,3 +18,45 @@
   margin-bottom: $spacing;
   border-bottom: 2px dotted rgb(224, 224, 224);
 }
+
+
+$answer-height: 10em;
+
+#questions-list {
+  .test-answer {
+    width: 50%;
+    float: left;
+    height: $answer-height;
+  }
+
+  .original-answer {
+    width: 47.5%;
+    float: right;
+    padding: 0.5em;
+    background: rgb(240, 248, 248);
+    border-radius: 8px;
+    border: 2px dashed rgb(220, 240, 240);
+    height: $answer-height;
+
+    h4 {
+      text-align: center;
+      padding: 2em;
+      color: rgb(100, 128, 128);
+      cursor: default;
+    }
+
+    p {
+      padding: 0.5em;
+    }
+  }
+
+  .question-buttons {
+    clear: both;
+    padding-top: 1em;
+
+    button {
+      margin-left: 0.5em;
+      margin-right: 0.5em;
+    }
+  }
+}

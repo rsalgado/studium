@@ -1,0 +1,19 @@
+= render partial: 'heading', locals: {section: @section, selected: :test}
+br
+
+#questions-list.panel-group
+  - @answered_questions.each do |question|
+    .panel.panel-default
+      .panel-heading
+        a(data-no-turbolink href="#collapse-#{question.id}" data-toggle="collapse" data-parent="#questions-list")  = question.title
+
+      div(id="collapse-#{question.id}" class="panel-collapse collapse")
+        .panel-body
+          textarea.test-answer.form-control(placeholder="Your answer")
+          .original-answer  
+            h4 Click to see your original answer
+            p = question.answer
+
+          .question-buttons        
+            button.btn.btn-success.done Done!
+            button.btn.btn-danger.reset Reset

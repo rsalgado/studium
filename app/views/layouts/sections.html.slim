@@ -6,8 +6,8 @@
 
     .row
       / Sections Area
-      = render  partial: 'shared/sections', 
-                locals: { sections: @sections, selected_id: current_section_id, reading_id: @reading.id }
+      = render  partial: 'shared/sections',
+                locals: { sections: @sections, current_section: @section, reading_id: @reading.id }
       
       / Current Section Area
       .col-xs-8

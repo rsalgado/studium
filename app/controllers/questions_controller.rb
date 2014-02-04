@@ -44,7 +44,6 @@ class QuestionsController < ApplicationController
     redirect_to section_questions_path(@section)
   end
 
-
   private
 
   def authenticate
