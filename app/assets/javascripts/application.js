@@ -15,4 +15,6 @@
 //= require turbolinks
 //= require bootstrap
 
+//= require summernote.min
+
 //= require_tree .

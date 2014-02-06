@@ -59,7 +59,9 @@ group :development, :test do
   gem 'factory_girl_rails'
 end
 
-
+# Summernote gems (it also relies on bootstrap-sass)
+gem 'font-awesome-sass'
+gem 'summernote-rails'
 
 
 # Use ActiveModel has_secure_password

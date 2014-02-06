@@ -10,7 +10,7 @@ br
     html: { class: 'form', role: 'form' }  ) do |f|
   .form-group
     = f.label :notes, 'Notes', {class: 'control-label'}
-    = f.text_area :notes, {class: 'form-control', rows: 12}
+    = f.text_area :notes, {class: 'form-control', id: 'summernote'}
 
   .form-group
-    = f.submit 'Save', {class: 'btn btn-primary pull-right'}
+    = f.submit 'Save', {class: 'btn btn-primary pull-right', id: 'save-notes'}

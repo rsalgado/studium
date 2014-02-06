@@ -21,4 +21,34 @@ $(document).on("page:change", function() {
   $('#questions-list').find('.reset').on('click', function() {
     $(this).closest('.panel').find('.test-answer').val('');
   });
+
+
+  // Summernote code
+
+  // shorthand to avoid repeated search
+  var notes = $('#summernote');
+  // Initialization
+  notes.summernote({
+    // Retrieve code from textarea
+    oninit: function() {
+      notes.code( notes.val() );
+    },
+    // Set other options, like height and the elements of the toolbar
+    height: 240,
+    toolbar: [
+      ['style', ['bold', 'italic', 'underline', 'clear']],
+      ['para', ['ul', 'ol', 'paragraph']],
+      ['help', ['help']]
+    ]
+  });
+
+  // Before sending get the code and put it back to the textarea
+  notes.closest('form').submit(function(){
+    notes.val( notes.code() );
+  });
+
+  /* 
+  * TODO: See if there are better ways of achieving the same without having 
+  * to do jQuery hacks or consider using AJAX forms, instead.
+  */
 });
