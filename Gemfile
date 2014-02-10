@@ -64,6 +64,10 @@ gem 'font-awesome-sass'
 gem 'summernote-rails'
 
 
+
+# PJAX attempt
+gem 'pjax_rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

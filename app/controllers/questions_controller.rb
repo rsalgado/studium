@@ -8,6 +8,10 @@ class QuestionsController < ApplicationController
   def index
     @section = Section.find params[:section_id]
     @questions = @section.questions
+
+    if request.headers['X-PJAX']
+      render layout: false
+    end
   end
 
   def create
@@ -18,12 +22,17 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to section_questions_path(params[:section_id])
     else
+      @questions = @question.section.questions
       render 'index'
     end
   end
 
   def edit
     @question = Question.find params[:id]
+
+    if request.headers['X-PJAX']
+      render layout: false
+    end
   end
 
   def update

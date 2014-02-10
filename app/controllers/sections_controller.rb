@@ -27,6 +27,10 @@ class SectionsController < ApplicationController
     @section = Section.find params[:id]
     @reading = @section.reading
     @sections = @reading.sections
+
+    if request.headers['X-PJAX']
+      render layout: false
+    end
   end
 
   def update
@@ -53,6 +57,10 @@ class SectionsController < ApplicationController
     @section = Section.find params[:id]
     @reading = @section.reading
     @sections = @reading.sections
+
+    if request.headers['X-PJAX']
+      render layout: false
+    end
   end
 
   def update_notes
@@ -73,6 +81,10 @@ class SectionsController < ApplicationController
     @answered_questions = @section.questions.select(&:answered?)
     @reading = @section.reading
     @sections = @reading.sections
+
+    if request.headers['X-PJAX']
+      render layout: false
+    end
   end
 
   private

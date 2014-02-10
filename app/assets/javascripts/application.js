@@ -14,7 +14,14 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
-
 //= require summernote.min
 
+//= require jquery.pjax
+
 //= require_tree .
+
+
+$(function() {
+  $(document).pjax('#section-contents a', '#section-contents');
+  $.pjax.defaults.scrollTo = false;
+});

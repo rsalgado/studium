@@ -2,7 +2,7 @@
 // All this logic will automatically be available in application.js.
 // You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).on("page:change", function() {
+$(document).on("page:change pjax:success", function() {
   var original_answer = $('#questions-list').find('.original-answer');
   original_answer.find('p').toggleClass('hidden');
   
