@@ -3,7 +3,7 @@ class ReadingsController < ApplicationController
   before_action :authorize, only: [:edit, :update, :destroy]
 
   def index
-    @readings = current_user.readings
+    @readings = current_user.readings.order("created_at")
   end
 
   def create
@@ -13,7 +13,7 @@ class ReadingsController < ApplicationController
     if @reading.save
       redirect_to readings_path
     else
-      @readings = current_user.readings
+      @readings = current_user.readings.order("created_at")
       render 'index'
     end
   end

@@ -26,7 +26,7 @@ class SectionsController < ApplicationController
   def edit
     @section = Section.find params[:id]
     @reading = @section.reading
-    @sections = @reading.sections
+    @sections = @reading.sections.order("created_at")
 
     if request.headers['X-PJAX']
       render layout: false
@@ -41,7 +41,7 @@ class SectionsController < ApplicationController
       redirect_to @section, notice: "#{@section.name} succesfully updated"
     else
       @reading = @section.reading
-      @sections = @reading.sections
+      @sections = @reading.sections.order("created_at")
       render 'edit'
     end
   end
@@ -56,7 +56,7 @@ class SectionsController < ApplicationController
   def notes
     @section = Section.find params[:id]
     @reading = @section.reading
-    @sections = @reading.sections
+    @sections = @reading.sections.order("created_at")
 
     if request.headers['X-PJAX']
       render layout: false
@@ -71,7 +71,7 @@ class SectionsController < ApplicationController
       redirect_to notes_section_path(@section)
     else
       @reading = @section.reading
-      @sections = @reading.sections
+      @sections = @reading.sections.order("created_at")
       render 'notes'
     end
   end
@@ -80,7 +80,7 @@ class SectionsController < ApplicationController
     @section = Section.find params[:id]
     @answered_questions = @section.questions.select(&:answered?)
     @reading = @section.reading
-    @sections = @reading.sections
+    @sections = @reading.sections.order("created_at")
 
     if request.headers['X-PJAX']
       render layout: false
@@ -107,6 +107,6 @@ class SectionsController < ApplicationController
 
   def find_reading_and_sections
     @reading = Reading.find params[:reading_id]
-    @sections = @reading.sections
+    @sections = @reading.sections.order("created_at")
   end
 end

@@ -7,7 +7,7 @@ class QuestionsController < ApplicationController
 
   def index
     @section = Section.find params[:section_id]
-    @questions = @section.questions
+    @questions = @section.questions.order("created_at")
 
     if request.headers['X-PJAX']
       render layout: false
@@ -22,7 +22,7 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to section_questions_path(params[:section_id])
     else
-      @questions = @question.section.questions
+      @questions = @question.section.questions.order("created_at")
       render 'index'
     end
   end
@@ -74,6 +74,6 @@ class QuestionsController < ApplicationController
   def get_layout_variables
     @section = Section.find params[:section_id] || Question.find(params[:id]).section
     @reading = @section.reading
-    @sections = @reading.sections
+    @sections = @reading.sections.order("created_at")
   end
 end
