@@ -6,12 +6,10 @@ class QuestionsController < ApplicationController
   before_action :get_layout_variables
 
   def index
-    @section = Section.find params[:section_id]
+    @section = Section.find(params[:section_id])
     @questions = @section.questions.order("created_at")
-
-    if request.headers['X-PJAX']
-      render layout: false
-    end
+    
+    check_pjax
   end
 
   def create
@@ -29,10 +27,7 @@ class QuestionsController < ApplicationController
 
   def edit
     @question = Question.find params[:id]
-
-    if request.headers['X-PJAX']
-      render layout: false
-    end
+    check_pjax
   end
 
   def update
@@ -60,11 +55,11 @@ class QuestionsController < ApplicationController
   end
 
   def authorize
-    section_condition = Section.exists?(params[:section_id]) &&
-      current_user.id == Section.find(params[:section_id]).reading.user.id
-
-    question_condition = Question.exists?(params[:id]) &&
-      current_user.id == Question.find(params[:id]).section.reading.user.id
+    section = Section.find_by(id: params[:section_id])
+    question = Question.find_by(id: params[:id])
+    
+    section_condition = section &&  section.reading.user.id == current_user.id
+    question_condition = question &&  question.section.reading.user.id == current_user.id
 
     unless section_condition || question_condition
       redirect_to readings_path
@@ -75,5 +70,11 @@ class QuestionsController < ApplicationController
     @section = Section.find params[:section_id] || Question.find(params[:id]).section
     @reading = @section.reading
     @sections = @reading.sections.order("created_at")
+  end
+  
+  def check_pjax
+    if request.headers['X-PJAX']
+      render layout: false
+    end
   end
 end

@@ -6,7 +6,7 @@
 
         span.btn-group
           = link_to 'Edit', edit_question_path(question), class: 'btn btn-warning'
-          = link_to 'Delete', question, method: :delete, confirm: 'Are you sure?', class: 'btn btn-danger'
+          = link_to 'Delete', question, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
 
       div(id="collapse-#{question.id}" class="panel-collapse collapse")
         .panel-body

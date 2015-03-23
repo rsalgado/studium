@@ -27,10 +27,7 @@ class SectionsController < ApplicationController
     @section = Section.find params[:id]
     @reading = @section.reading
     @sections = @reading.sections.order("created_at")
-
-    if request.headers['X-PJAX']
-      render layout: false
-    end
+    check_pjax
   end
 
   def update
@@ -81,10 +78,7 @@ class SectionsController < ApplicationController
     @answered_questions = @section.questions.select(&:answered?)
     @reading = @section.reading
     @sections = @reading.sections.order("created_at")
-
-    if request.headers['X-PJAX']
-      render layout: false
-    end
+    check_pjax
   end
 
   private
@@ -94,11 +88,11 @@ class SectionsController < ApplicationController
   end
 
   def authorize
-    reading_condition = Reading.exists?(params[:reading_id]) && 
-      current_user.id == Reading.find(params[:reading_id]).user.id
-
-    section_condition = Section.exists?(params[:id])  && 
-      current_user.id == Section.find(params[:id]).reading.user.id
+    reading = Reading.find_by(id: params[:reading_id])
+    section = Section.find_by(id: params[:id])
+    
+    reading_condition = reading && reading.user.id == current_user.id
+    section_condition = section &&  section.reading.user.id == current_user.id
 
     unless reading_condition || section_condition
       redirect_to readings_path
@@ -108,5 +102,11 @@ class SectionsController < ApplicationController
   def find_reading_and_sections
     @reading = Reading.find params[:reading_id]
     @sections = @reading.sections.order("created_at")
+  end
+  
+  def check_pjax
+    if request.headers['X-PJAX']
+      render layout: false
+    end    
   end
 end

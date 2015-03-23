@@ -45,8 +45,8 @@ class ReadingsController < ApplicationController
   end
 
   def authorize
-    unless Reading.exists?(params[:id]) && 
-      current_user.id == Reading.find(params[:id]).user.id
+    reading = Reading.find_by(id: params[:id])
+    unless reading && current_user.id == reading.user.id
         redirect_to readings_path
     end
   end
