@@ -45,6 +45,7 @@ class QuestionsController < ApplicationController
   def destroy
     @question = Question.find params[:id]
     @question.destroy
+
     redirect_to section_questions_path(@section)
   end
 

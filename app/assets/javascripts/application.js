@@ -22,6 +22,8 @@
 
 
 $(function() {
-  $(document).pjax('#section-contents a', '#section-contents');
+  // Use PJAX to reload only a part of the site and keep the scroll in the same place
+  // NOTE: Consider doing the same with Turbolinks
+  $(document).pjax('#section-contents a:not(a[data-method])', '#section-contents');   // Listens to all links without the data-method attribute (to avoid triggering PJAX when deleting items, which caused Errors)
   $.pjax.defaults.scrollTo = false;
 });
