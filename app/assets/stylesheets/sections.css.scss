@@ -39,6 +39,7 @@ $answer-height: 10em;
     height: $answer-height;
 
     h4 {
+      display: block;
       text-align: center;
       padding: 2em;
       color: rgb(100, 128, 128);
@@ -46,8 +47,14 @@ $answer-height: 10em;
     }
 
     p {
+      display: none;
       padding: 0.5em;
     }
+  }
+
+  .original-answer.show-answer {
+    & > h4 { display: none; }    // Hide the title
+    & > p { display: block; }    // Show the answer
   }
 
   .question-buttons {

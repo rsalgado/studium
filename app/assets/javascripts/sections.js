@@ -1,38 +1,38 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
-// You can use CoffeeScript in this file: http://coffeescript.org/
-
 $(document).on("page:change pjax:success", function() {
-  var original_answer = $('#questions-list').find('.original-answer');
-  original_answer.find('p').toggleClass('hidden');
   
-  original_answer.on('click', function () {
-    $(this).find('h4').toggleClass('hidden');
-    $(this).find('p').toggleClass('hidden');
+  // Tests' Tab Functionality
+
+  // 'Original Answer' functionality
+  $('#questions-list').find('.original-answer').on('click', function() {
+    $(this).toggleClass("show-answer");
   });
 
-  // 'Done' button functionality
+  // 'Done!' button functionality
   $('#questions-list').find('.done').on('click', function() {
-    $(this).closest('.panel').toggleClass('panel-default')
-                             .toggleClass('panel-success');
-    $(this).closest('.panel').find('.panel-collapse').collapse('toggle');
+    var panel = $(this).closest('.panel');
+    // Change panel color from default to success and collapse it
+    panel.toggleClass('panel-default').toggleClass('panel-success');
+    panel.find('.panel-collapse').collapse('toggle');
   });
 
+  // 'Reset' button functionality
   $('#questions-list').find('.reset').on('click', function() {
-    $(this).closest('.panel').find('.test-answer').val('');
+    var panel = $(this).closest(".panel");
+    // Clear the answer, hide the original answer and toggle panel success (Done!) styles
+    panel.find('.test-answer').val('');
+    panel.find('.original-answer').removeClass("show-answer");
+    panel.addClass('panel-default').removeClass('panel-success');
   });
 
 
+  // Notes' Tab functionaliy
   // Summernote code
 
-  // shorthand to avoid repeated search
-  var notes = $('#summernote');
+  var notes = $('#summernote');    // shorthand to avoid repeated search
   // Initialization
   notes.summernote({
     // Retrieve code from textarea
-    oninit: function() {
-      notes.code( notes.val() );
-    },
+    oninit: function() { notes.code( notes.val() ); },
     // Set other options, like height and the elements of the toolbar
     height: 240,
     toolbar: [
@@ -41,14 +41,6 @@ $(document).on("page:change pjax:success", function() {
       ['help', ['help']]
     ]
   });
-
   // Before sending get the code and put it back to the textarea
-  notes.closest('form').submit(function(){
-    notes.val( notes.code() );
-  });
-
-  /* 
-  * TODO: See if there are better ways of achieving the same without having 
-  * to do jQuery hacks or consider using AJAX forms, instead.
-  */
+  notes.closest('form').submit(function() {   notes.val( notes.code() ); });
 });
