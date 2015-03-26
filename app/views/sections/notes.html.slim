@@ -6,7 +6,7 @@ br
 br
 
 / Notes contents
-= form_for(@section, url: notes_section_path(@section), 
+= form_for(@section, url: notes_section_path(@section), remote: true,
     html: { class: 'form', role: 'form' }  ) do |f|
   .form-group
     = f.label :notes, 'Notes', {class: 'control-label'}
