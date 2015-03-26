@@ -55,9 +55,7 @@ class SectionsController < ApplicationController
     @reading = @section.reading
     @sections = @reading.sections.order("created_at")
 
-    if request.headers['X-PJAX']
-      render layout: false
-    end
+    check_pjax
   end
 
   def update_notes
@@ -105,8 +103,6 @@ class SectionsController < ApplicationController
   end
   
   def check_pjax
-    if request.headers['X-PJAX']
-      render layout: false
-    end    
+    render layout: false   if request.headers['X-PJAX']
   end
 end

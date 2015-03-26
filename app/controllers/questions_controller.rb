@@ -36,7 +36,7 @@ class QuestionsController < ApplicationController
 
     if @question.update(strong_params)
       redirect_to section_questions_path(@question.section), 
-                  notice: "#{@question.title} successfully updated"
+      notice: "Question \"#{@question.title}\" successfully updated"
     else
       render 'edit'
     end
