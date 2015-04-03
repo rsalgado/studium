@@ -14,9 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
-//= require summernote.min
-
 //= require jquery.pjax
+//= require summernote
 
 //= require_tree .
 
