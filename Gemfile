@@ -13,6 +13,7 @@ end
 group :production do
   gem 'pg', '~> 0.15'
   gem 'rails_12factor', '0.0.2'
+  gem 'thin'
 end
 
 # Use SCSS for stylesheets
@@ -63,9 +64,7 @@ end
 gem 'font-awesome-sass', '~> 4.0.2'
 gem 'summernote-rails', '~> 0.4.0'
 
-
-
-# PJAX attempt
+# PJAX dependency
 gem 'pjax_rails'
 
 # Use ActiveModel has_secure_password
